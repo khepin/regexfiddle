@@ -1,0 +1,18 @@
+@import "compass_twitter_bootstrap";
+
+textarea {
+    width: 100%;
+    height: 40em;
+}
+
+.matched {
+    background: CornflowerBlue;
+    margin-right: 1px;
+    padding: 1px;
+    @include border-radius(2px);
+}
+
+.alerts {
+    height: 50px;
+    padding: 10px;
+}
