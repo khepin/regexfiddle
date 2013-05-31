@@ -1,12 +1,13 @@
 'use strict';
 var Parse = Parse;
+var _ = _;
 
-var module = angular.module('regexFiddleApp');
-module.config(function(){
-    Parse.initialize("eGZU1xz0zEJydpmz67LOZYKYo5VTVXgeQHJfRpjs", "pJNzuPYF4vOqBVxgKvqpn257d7uXyy3eV9DjmMNK");
+var m = angular.module('regexFiddleApp');
+m.config(function(){
+    Parse.initialize('eGZU1xz0zEJydpmz67LOZYKYo5VTVXgeQHJfRpjs', 'pJNzuPYF4vOqBVxgKvqpn257d7uXyy3eV9DjmMNK');
 });
 
-module.controller('MainCtrl', function ($scope, $routeParams) {
+m.controller('MainCtrl', function ($scope, $routeParams) {
     var SavedRegex = Parse.Object.extend('SavedRegex');
     $scope.regex = new SavedRegex();
     if ($routeParams.id) {
@@ -16,9 +17,7 @@ module.controller('MainCtrl', function ($scope, $routeParams) {
             $scope.regex = response;
             $scope.$apply();
           },
-          error: function(object, error) {
-            // The object was not retrieved successfully.
-            // error is a Parse.Error with an error code and description.
+          error: function() {
           }
         });
     }
@@ -39,7 +38,7 @@ module.controller('MainCtrl', function ($scope, $routeParams) {
             data[i] = data[i].replace(new RegExp('(' + $scope.regex.attributes.regex + ')', $scope.regex.attributes.flags), replace).replace(/\n/g, '<br>');
         }
         return data;
-    }
+    };
 
     $scope.save = function() {
         $scope.regex.set($scope.regex.attributes);
