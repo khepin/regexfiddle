@@ -16,3 +16,26 @@ textarea {
     height: 50px;
     padding: 10px;
 }
+
+.regex-link {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+input.regex {
+    width: 90%;
+}
+
+input.flags {
+    width: 6%;
+}
+
+input.replace {
+    width: 98%;
+    margin-bottom: 0;
+}
+
+.regular-expression input {
+    border: 2px solid Gainsboro;
+}

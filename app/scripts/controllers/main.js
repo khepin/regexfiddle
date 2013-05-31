@@ -4,7 +4,7 @@ var _ = _;
 
 var m = angular.module('regexFiddleApp');
 m.config(function(){
-    Parse.initialize('eGZU1xz0zEJydpmz67LOZYKYo5VTVXgeQHJfRpjs', 'pJNzuPYF4vOqBVxgKvqpn257d7uXyy3eV9DjmMNK');
+    Parse.initialize('92SVaZJHUZ5xeQxFbuGG2pJ330COl23ME1yBneM6', '00YVmhKwZpsLWRvacpxPM00bVBM0LyF1gSuVMJH2');
 });
 
 m.controller('MainCtrl', function ($scope, $routeParams) {
