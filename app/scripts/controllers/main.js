@@ -51,7 +51,7 @@ m.controller('MainCtrl', function ($scope, $routeParams) {
                 data[i] = data[i].replace(new RegExp(spanOpen, 'g'), '<span class="matched">');
                 data[i] = data[i].replace(new RegExp(spanClose, 'g'), '</span>');
             }
-            data[i] = data[i].replace(/\n/g, '<br>');
+            data[i] = {line: data[i].replace(/\n/g, '<br>')};
         }
         return data;
     };

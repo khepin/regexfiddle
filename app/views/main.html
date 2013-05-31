@@ -28,5 +28,5 @@
     <div class="span6">
         <textarea ng-change="save()" ng-model="regex.attributes.data"></textarea>
     </div>
-    <div class="span6"><span ng-repeat="result in regexResult()"><span ng-bind-html-unsafe="result"></span><br></span></div>
+    <div class="span6"><span ng-repeat="result in regexResult()"><span ng-bind-html-unsafe="result.line"></span><br></span></div>
 </div>
