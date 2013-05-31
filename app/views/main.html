@@ -1,7 +1,7 @@
 <div class="alerts">
     <div class="alert alert-info" ng-show="saved">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      Saved at <a href="#/{{regex.id}}">http://regexfiddle.parseapp.com/#/{{regex.id}}</a>
+      Saved at <a href="#/{{regex.id}}">http://regex-fiddle.parseapp.com/#/{{regex.id}}</a>
     </div>
     <div class="alert alert-error" ng-show="saveError">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -11,7 +11,7 @@
 <div class="well regular-expression">
   <div class="regex-link" ng-show="regex.id">
     Your regex is available here:
-    <a href="#/{{regex.id}}">http://regexfiddle.parseapp.com/#/{{regex.id}}</a>
+    <a href="#/{{regex.id}}">http://regex-fiddle.parseapp.com/#/{{regex.id}}</a>
   </div>
   <form>
     <fieldset>
@@ -19,7 +19,8 @@
         <input ng-change="save()" type="text" ng-model="regex.attributes.regex" placeholder="(\w+)123?m{1,2}" class="regex">
         <input ng-change="save()" type="text" ng-model="regex.attributes.flags" placeholder="flags" class="flags">
         <label>Replace with</label>
-        <input ng-change="save()" type="text" ng-model="regex.attributes.replace" placeholder="The first word is $1" class="replace">
+        <input ng-change="save()" type="checkbox" ng-model="regex.attributes.doReplace" placeholder="The first word is $1" class="do-replace">
+        <input ng-change="save()" type="text" ng-model="regex.attributes.replace" placeholder="The first word is $1" class="replace" ng-disabled="!regex.attributes.doReplace" ng-trim="false">
     </fieldset>
   </form>
 </div>
