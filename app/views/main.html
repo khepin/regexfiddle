@@ -9,24 +9,25 @@
     </div>
 </div>
 <div class="well regular-expression">
-  <div class="regex-link" ng-show="regex.id">
+  <div class="regex-link clearfix" ng-show="regex.id">
+    <a href="/" class="btn pull-right btn-success">New Regex</a>
     Your regex is available here:
     <a href="#/{{regex.id}}">http://regex-fiddle.parseapp.com/#/{{regex.id}}</a>
   </div>
   <form>
     <fieldset>
         <label>Regular expression</label>
-        <input ng-change="save()" type="text" ng-model="regex.attributes.regex" placeholder="(\w+)123?m{1,2}" class="regex">
-        <input ng-change="save()" type="text" ng-model="regex.attributes.flags" placeholder="flags" class="flags">
+        <input ng-change="save();regexResult()" type="text" ng-model="regex.attributes.regex" placeholder="(\w+)123?m{1,2}" class="regex">
+        <input ng-change="save();regexResult()" type="text" ng-model="regex.attributes.flags" placeholder="flags" class="flags">
         <label>Replace with</label>
-        <input ng-change="save()" type="checkbox" ng-model="regex.attributes.doReplace" placeholder="The first word is $1" class="do-replace">
-        <input ng-change="save()" type="text" ng-model="regex.attributes.replace" placeholder="The first word is $1" class="replace" ng-disabled="!regex.attributes.doReplace" ng-trim="false">
+        <input ng-change="save();regexResult()" type="checkbox" ng-model="regex.attributes.doReplace" placeholder="The first word is $1" class="do-replace">
+        <input ng-change="save();regexResult()" type="text" ng-model="regex.attributes.replace" placeholder="The first word is $1" class="replace" ng-disabled="!regex.attributes.doReplace" ng-trim="false">
     </fieldset>
   </form>
 </div>
 <div class="row">
     <div class="span6">
-        <textarea ng-change="save()" ng-model="regex.attributes.data"></textarea>
+        <textarea ng-change="save();regexResult()" ng-model="regex.attributes.data"></textarea>
     </div>
-    <div class="span6"><span ng-repeat="result in regexResult()"><span ng-bind-html-unsafe="result.line"></span><br></span></div>
+    <div class="span6"><span ng-repeat="result in results"><span ng-bind-html-unsafe="result.line"></span><br></span></div>
 </div>

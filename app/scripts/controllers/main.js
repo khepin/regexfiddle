@@ -41,8 +41,10 @@ m.controller('MainCtrl', function ($scope, $routeParams) {
 
         for (var i = 0; i < data.length; i++) {
             if ($scope.regex.attributes.regex) {
-                var reg = new RegExp('(' + $scope.regex.attributes.regex + ')', $scope.regex.attributes.flags);
-                data[i] = data[i].replace(reg, replace);
+                try {
+                    var reg = new RegExp('(' + $scope.regex.attributes.regex + ')', $scope.regex.attributes.flags);
+                    data[i] = data[i].replace(reg, replace);
+                } catch(e) {}
             }
 
             data[i] = _.escape(data[i]).replace(/\s/g, '&nbsp;');
@@ -53,7 +55,8 @@ m.controller('MainCtrl', function ($scope, $routeParams) {
             }
             data[i] = {line: data[i].replace(/\n/g, '<br>')};
         }
-        return data;
+
+        $scope.results = data;
     };
 
     $scope.save = function() {
