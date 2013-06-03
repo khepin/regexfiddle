@@ -15,6 +15,7 @@ m.controller('MainCtrl', function ($scope, $routeParams) {
         query.get($routeParams.id, {
           success: function(response) {
             $scope.regex = response;
+            $scope.regexResult();
             $scope.$apply();
           },
           error: function() {
